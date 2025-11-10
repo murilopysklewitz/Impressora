@@ -186,7 +186,7 @@ int main(void)
     int opcao = 0;
     while (1) {
         opcao = exibirMenu();
-        printf("Voce escolheu a opcao %i", opcao);
+        printf("Voce escolheu a opcao %i\n", opcao);
         switch (opcao)
         {
         case 1:
