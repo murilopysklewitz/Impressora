@@ -103,7 +103,7 @@ static void liberarBiblioteca(void)
 static int exibirMenu(void)
 {
     int escolha;
-    printf("======================= Menu =======================\n1- Configurar Conexao\n2-Abrir Conexao\n3-Impressao Texto\n 4-Impressao QRCODE\n 5- Impressao Cod Barras\n6- Impressao XML SAT\n7- Impressao XML Canc SAT\n8- Abrir Gaveta Elgin\n9- Abrir Gaveta\n10- Sinal Sonoro\n0- Fechar Conexao e Sair\n");
+    printf("======================= Menu =======================\n1- Configurar Conexao\n2-Abrir Conexao\n3-Impressao Texto\n4-Impressao QRCODE\n5- Impressao Cod Barras\n6- Impressao XML SAT\n7- Impressao XML Canc SAT\n8- Abrir Gaveta Elgin\n9- Abrir Gaveta\n10- Sinal Sonoro\n0- Fechar Conexao e Sair\n");
     scanf("%i", &escolha);
     return escolha;
 }
@@ -185,8 +185,17 @@ int main(void)
     }
     int opcao = 0;
     while (1) {
-        exibirMenu();
+        opcao = exibirMenu();
+        printf("Voce escolheu a opcao %i", opcao);
+        switch (opcao)
+        {
+        case 1:
+            
+            break;
         
+        default:
+            break;
+        }
         
                 
         
