@@ -100,9 +100,12 @@ static void liberarBiblioteca(void)
 
 /* ======================= Funções a serem implementadas pelos alunos ======================= */
 
-static void exibirMenu(void)
+static int exibirMenu(void)
 {
-    printf("")
+    int escolha;
+    printf("======================= Menu =======================\n1- Configurar Conexao\n2-Abrir Conexao\n3-Impressao Texto\n 4-Impressao QRCODE\n 5- Impressao Cod Barras\n6- Impressao XML SAT\n7- Impressao XML Canc SAT\n8- Abrir Gaveta Elgin\n9- Abrir Gaveta\n10- Sinal Sonoro\n0- Fechar Conexao e Sair\n");
+    scanf("%i", &escolha);
+    return escolha;
 }
 
 static void configurarConexao(void)
@@ -174,16 +177,15 @@ static void emitirSinalSonoro(void)
     // TODO: chamar SinalSonoro(4, 50, 5)
 }
 
-/* ======================= Fun��o principal ======================= */
+/* ======================= Funcao principal ======================= */
 int main(void)
 {
     if (!carregarFuncoes()) {
         return 1;
     }
-
     int opcao = 0;
     while (1) {
-        
+        exibirMenu();
         
         
                 
