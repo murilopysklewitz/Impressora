@@ -103,14 +103,41 @@ static void liberarBiblioteca(void)
 static int exibirMenu(void)
 {
     int escolha;
+
     printf("======================= Menu =======================\n1- Configurar Conexao\n2-Abrir Conexao\n3-Impressao Texto\n4-Impressao QRCODE\n5- Impressao Cod Barras\n6- Impressao XML SAT\n7- Impressao XML Canc SAT\n8- Abrir Gaveta Elgin\n9- Abrir Gaveta\n10- Sinal Sonoro\n0- Fechar Conexao e Sair\n");
     scanf("%i", &escolha);
+
     return escolha;
 }
 
-static void configurarConexao(void)
+static int configurarConexao(void)
 {
+    int tipo;
+    char modelo[30];
+    char conexao[20];
+    int parametro;
     // TODO: pedir ao usuário tipo, modelo, conexão e parâmetro
+    printf("Digite o tipo de conexão:\n1- USB\n1- RS232\n1- TCP/IP\n1- Bluetooth\n1- Impressoras Acopladas\n");
+    scanf(" %i", &tipo);
+    printf("Voce escolheu %i", tipo);
+
+    printf("Digite o model:\n1- i7\n2- i7 plus\n3- i8\n4- i9\n5- ix\n6- Fitpos\n7- BK-T681\n8- MP-4200\n9- MP-4200 HS\n10- MK\n11- MP-2800\n");
+    scanf(" %s", &modelo);
+    printf("Voce escolheu %s", modelo);
+
+    printf("Digite a conexão: \n1- USB\n2- RS232\n3- TCP/IP\n4- Bluetooth\n");
+    scanf(" %s", &conexao);
+    printf("Voce escolheu %s", conexao);
+
+    printf("Digite o parametro de conexão: \n");
+    scanf(" %i", &parametro);
+    printf("Voce escolheu %i", parametro);
+
+    if(!tipo || !modelo || !conexao || !parametro) {
+        return 1;
+    }
+    return 0
+
 }
 
 static void abrirConexao(void)
@@ -183,8 +210,9 @@ int main(void)
     if (!carregarFuncoes()) {
         return 1;
     }
-    int opcao = 0;
-    while (1) {
+    int opcao = 0, fecharLoop = 0;
+    
+    while (fecharLoop != 1) {
         opcao = exibirMenu();
         printf("Voce escolheu a opcao %i\n", opcao);
         switch (opcao)
@@ -192,8 +220,13 @@ int main(void)
         case 1:
             
             break;
+
+
+        case 0:
+        fecharLoop = 1;
+            break;
         
-        default:
+        default :
             break;
         }
         
